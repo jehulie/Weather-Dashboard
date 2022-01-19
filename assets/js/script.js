@@ -22,34 +22,34 @@ function geocode() {
     });
 };
 
-geocode();
+// geocode();
 
-function getLngLat(data) {
-  var userLat = data[0].lat;
-  var userLng = data[0].lon;
-  console.log("latitude:", userLat);
-  console.log("longitude:", userLng);
-  var oneCallUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + userLat + '&lon=' + userLng + '&appid=bec1cdd13d275e4702f754866932c17f&units=imperial';
-  getApi(oneCallUrl, data);
-};
+// function getLngLat(data) {
+//   var userLat = data[0].lat;
+//   var userLng = data[0].lon;
+//   console.log("latitude:", userLat);
+//   console.log("longitude:", userLng);
+//   var oneCallUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + userLat + '&lon=' + userLng + '&appid=bec1cdd13d275e4702f754866932c17f&units=imperial';
+//   getApi(oneCallUrl, data);
+// };
 
 // Get Weather data from Open Weather One Call API
-function getApi(oneCallUrl) {
-  fetch(oneCallUrl)
-    .then(function (response) {
-      if (response.status === 200) {
-      }
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data)
+// function getApi(oneCallUrl) {
+//   fetch(oneCallUrl)
+//     .then(function (response) {
+//       if (response.status === 200) {
+//       }
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data)
       // displayWeather(data);
-      return data;
-    })
-    //   catch any errors
-    .catch(function () {
-    });
-};
+//       return data;
+//     })
+//     //   catch any errors
+//     .catch(function () {
+//     });
+// };
 
 // Function to display weather data on web page
 // function displayWeather(data) {
@@ -70,6 +70,24 @@ function getApi(oneCallUrl) {
 //   todayHumid.textContent = "Humidity: " + currentHumid + " %";
 //   todayUV.textContent = "UV Index: " + currentUV;
 
-// For 5-day forecast
-// };
+// Convert dt to date
+// const dt = data.current.dt;
+// var day = new Date(dt*1000);
+// console.log(day.toDateString());
+
+// Option 2:
+// const unixTimestamp = data.current.dt
+// const date = new Date(unixTimestamp * 1000);
+// const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+// const year = date.getFullYear();
+// const month = months[date.getMonth()];
+// const dt = date.getDate();
+// const hours = date.getHours();
+// const minutes = "0" + date.getMinutes();
+// const seconds = "0" + date.getSeconds();
+// const formattedTime = `${month}-${dt}-${year}}`;
+
+// console.log(formattedTime);
+
+// }
 

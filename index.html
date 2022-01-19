@@ -16,22 +16,92 @@
 </head>
 
 <body>
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-image: url(./assets/images/cloud-portrait.jpeg); 
+    background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
         <h1 class="display-4">Weather Dashboard</h1>
-        <hr class="my-4">
-        <p>Search for a City:</p>
-        <p class="lead">
-        <div class="form-group">
-            <input type="text" class="form-control" id="userCity" aria-describedby="user city input"
-                placeholder="Chicago">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        </p>
+        <!-- <hr class="my-6"> -->
     </div>
-
-    <ul class="list-group">
-        <li class="search-item"></li>
-    </ul>
+    <div class='row'>
+        <div class="col-sm-3" id="search-box">
+            <h2>Search for a City:</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" id="userCity" aria-describedby="user city input"
+                    placeholder="Chicago">
+            </div>
+            <button type="submit" class="btn" id="custom-btn">Submit</button>
+         <hr>
+        </div>
+        <div class="col" id="current-box" style="background-image: url(./assets/images/clouds_white_medres.jpeg); 
+        background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
+            <h2>City Input</h2>
+            <ul>
+                <li class='current-temp'>Temp: 74</li>
+                <li class='current-wind'>Wind: 76.67 MPH</li>
+                <li class='current-humid'>Humidity: 46%</li>
+                <li class='current-uv'>UV Index: 0.47</li>
+            </ul>
+        </div>
+    </div>
+    <div class='row'>
+        <div class="col-sm-3" id="results-box">
+            <div>
+                <ul class="list-group">
+                    <li class="search-item"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col" id="forecast-box" style="background-image: url(./assets/images/cloud-portrait.jpeg); 
+        background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
+            <div class='row'>
+                <h3>5-Day Forecast</h3>
+                <div class="col" id="forecast-card">
+                    <h4>Date Input</h4>
+                    <ul>
+                        <li>Temp: 74</li>
+                        <li>Wind: 76.67 MPH</li>
+                        <li>Humidity: 46%</li>
+                        <li>UV Index: 0.47</li>
+                    </ul>
+                </div>
+                <div class="col" id="forecast-card">
+                    <h4>Date Input</h4>
+                    <ul>
+                        <li>Temp: 74</li>
+                        <li>Wind: 76.67 MPH</li>
+                        <li>Humidity: 46%</li>
+                        <li>UV Index: 0.47</li>
+                    </ul>
+                </div>
+                <div class="col" id="forecast-card">
+                    <h4>Date Input</h4>
+                    <ul>
+                        <li>Temp: 74</li>
+                        <li>Wind: 76.67 MPH</li>
+                        <li>Humidity: 46%</li>
+                        <li>UV Index: 0.47</li>
+                    </ul>
+                </div>
+                <div class="col" id="forecast-card">
+                    <h4>Date Input</h4>
+                    <ul>
+                        <li>Temp: 74</li>
+                        <li>Wind: 76.67 MPH</li>
+                        <li>Humidity: 46%</li>
+                        <li>UV Index: 0.47</li>
+                    </ul>
+                </div>
+                <div class="col" id="forecast-card">
+                    <h4>Date Input</h4>
+                    <ul>
+                        <li>Temp: 74</li>
+                        <li>Wind: 76.67 MPH</li>
+                        <li>Humidity: 46%</li>
+                        <li>UV Index: 0.47</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
