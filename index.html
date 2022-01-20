@@ -17,29 +17,29 @@
 
 <body style="background-image: url(./assets/images/sunset3-medres.jpg); 
 background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
-    <div class="jumbotron" style="background-image: url(./assets/images/cloud-portrait.jpeg); 
+    <div class="jumbotron" style="background-image: url(./assets/images/sunset1-crop.jpeg); 
     background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
         <h1 class="display-4">Weather Dashboard</h1>
         <!-- <hr class="my-6"> -->
     </div>
     <div class='row'>
         <div class="col-sm-3" id="search-box">
-            <h2>Search for a City:</h2>
+            <h2 id="search-header">Search for a City:</h2>
             <div class="form-group">
-                <input type="text" class="form-control" id="userCity" aria-describedby="user city input"
+                <input type="text" class="validate" id="userCity" aria-describedby="user city input"
                     placeholder="Chicago">
             </div>
-            <button type="submit" class="btn" id="custom-btn">Submit</button>
+            <button type="submit" name="action" id="custom-btn">Submit</button>
          <hr>
         </div>
         <div class="col" id="current-box" style="background-image: url(./assets/images/clouds_white_medres.jpeg); 
         background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
-            <h2>City Input</h2>
+            <h2 id="city-header">City Input</h2>
             <ul>
-                <li class='current-temp'>Temp: 74</li>
-                <li class='current-wind'>Wind: 76.67 MPH</li>
-                <li class='current-humid'>Humidity: 46%</li>
-                <li class='current-uv'>UV Index: 0.47</li>
+                <li id='current-temp'>Temp: 74</li>
+                <li id='current-wind'>Wind: 76.67 MPH</li>
+                <li id='current-humid'>Humidity: 46%</li>
+                <li id='current-uv'>UV Index: 0.47</li>
             </ul>
         </div>
     </div>
@@ -54,8 +54,16 @@ background-repeat: no-repeat;background-attachment: fixed; background-size: cove
         <div class="col" id="forecast-box">
             <div class='row'>
                 <h3>5-Day Forecast</h3>
-                <div class="col" id="forecast-card" style="background-image: url(./assets/images/sunset1-medres.jpg); 
-                background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
+                <div class="col" id="forecast-card">
+                    <h4>Date Input</h4>
+                    <ul>
+                        <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
+                        <li>Wind: 76.67 MPH</li>
+                        <li>Humidity: 46%</li>
+                        <li>UV Index: 0.47</li>
+                    </ul>
+                </div>
+                <div class="col" id="forecast-card">
                     <h4>Date Input</h4>
                     <ul>
                         <li>Temp: 74</li>
@@ -64,8 +72,7 @@ background-repeat: no-repeat;background-attachment: fixed; background-size: cove
                         <li>UV Index: 0.47</li>
                     </ul>
                 </div>
-                <div class="col" id="forecast-card" style="background-image: url(./assets/images/sunset1-medres.jpg); 
-                background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
+                <div class="col" id="forecast-card">
                     <h4>Date Input</h4>
                     <ul>
                         <li>Temp: 74</li>
@@ -74,8 +81,7 @@ background-repeat: no-repeat;background-attachment: fixed; background-size: cove
                         <li>UV Index: 0.47</li>
                     </ul>
                 </div>
-                <div class="col" id="forecast-card" style="background-image: url(./assets/images/sunset1-medres.jpg); 
-                background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
+                <div class="col" id="forecast-card">
                     <h4>Date Input</h4>
                     <ul>
                         <li>Temp: 74</li>
@@ -84,18 +90,7 @@ background-repeat: no-repeat;background-attachment: fixed; background-size: cove
                         <li>UV Index: 0.47</li>
                     </ul>
                 </div>
-                <div class="col" id="forecast-card" style="background-image: url(./assets/images/sunset1-medres.jpg); 
-                background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
-                    <h4>Date Input</h4>
-                    <ul>
-                        <li>Temp: 74</li>
-                        <li>Wind: 76.67 MPH</li>
-                        <li>Humidity: 46%</li>
-                        <li>UV Index: 0.47</li>
-                    </ul>
-                </div>
-                <div class="col" id="forecast-card" style="background-image: url(./assets/images/sunset1-medres.jpg); 
-                background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
+                <div class="col" id="forecast-card">
                     <h4>Date Input</h4>
                     <ul>
                         <li>Temp: 74</li>
