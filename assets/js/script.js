@@ -7,7 +7,7 @@ var forecastTemp = document.getElementById('daily-temp');
 var forecastWind = document.getElementById('daily-wind');
 var forecastHumid = document.getElementById('daily-humid');
 var forecastDate = document.getElementById('date-input');
-var searchResults = document.getElementsByClassName('search-item');
+var searchResults = document.getElementsByClassName('list-group');
 
 // Pulling city location from html
 var userCity = "";
@@ -19,9 +19,23 @@ var submitBtn = document.getElementById('custom-btn');
 function getUserInput() {
   userCity = document.getElementById('userCity').value;
   console.log(userCity);
-  localStorage.setItem('citySearch', userCity);
-  searchResults.textContent = localStorage.getItem('searchCity');
-  return userCity;
+
+  // ** Can't get local storage to save an array of userCity inputs, only saves first input **
+  var CityArray = localStorage.getItem("savedCity") || [];
+  CityArray.push(userCity);
+  localStorage.setItem('savedCity', CityArray);
+  loadCities()
+};
+
+// ** Can't get local storage to load prior search inputs **
+function loadCities() {
+  searchResults.setAttribute("value", localStorage);
+  var storedValue = localStorage.getItem("savedCity");
+  for (var i = 0; i < storedValue.length; i++) {
+    var listEl = document.createElementNS('li')
+    listEl.textContent = storedValue[i]
+    searchResults.appendChild(listEl);
+  }
 };
 
 // getUserInput();
@@ -98,7 +112,18 @@ function displayWeather(data) {
   todayTemp.textContent = "Temp: " + Temp + '\u00B0F ';
   todayWind.textContent = "Wind: " + currentWind + " MPH";
   todayHumid.textContent = "Humidity: " + currentHumid + " %";
-  todayUV.textContent = "UV Index: " + currentUV;
+  todayUV.textContent = " " + currentUV + " ";
+  // set color of UV index for favorable (0-2), moderate (3-5), severe (6+)
+  // ** how to fix spacing for highlighted color **
+  if (currentUV < 3) {
+    todayUV.setAttribute("style", "background-color: palegreen;");
+  }
+  else if (currentUV >= 3 || currentUV < 6) {
+    todayUV.setAttribute("style", "background-color: yellow;");
+  }
+  else {
+    todayUV.setAttribute("style", "background-color: tomato;");
+  }
   return data;
 };
 
@@ -123,7 +148,7 @@ function displayDate(data) {
     const day = date.getDate();
     const dailyTime = `${month}/${day}/${year}`;
     console.log("Date:", dailyTime);
-     // ** How do I add array of dailyTime to each forecastDate in HTML?**
+    // ** How do I add array of dailyTime to each forecastDate in HTML?**
     forecastDate.textContent = dailyTime;
   }
 };
@@ -131,17 +156,19 @@ function displayDate(data) {
 // Function to display 5-day forecast on web page
 function displayForecast(data) {
   for (let i = 1; i < 6; i++) {
-  var dailyTemp = data.daily[i].temp.day;
-  console.log('Temp:', dailyTemp);
-  var dailyWind = data.daily[i].wind_speed;
-  console.log('Wind:', dailyWind);
-  var dailyHumid = data.daily[i].humidity;
-  console.log('Humidity:', dailyHumid);
-  let dTemp = dailyTemp.toFixed(1);
-  console.log(dTemp);
-   // ** How do I add array of data to each respective element in HTML?**
-  forecastTemp.textContent = "Temp: " + dTemp + '\u00B0F ';
-  forecastWind.textContent = "Wind: " + dailyWind + " MPH";
-  forecastHumid.textContent = "Humidity: " + dailyHumid + " %";
+    var dailyTemp = data.daily[i].temp.day;
+    console.log('Temp:', dailyTemp);
+    var dailyWind = data.daily[i].wind_speed;
+    console.log('Wind:', dailyWind);
+    var dailyHumid = data.daily[i].humidity;
+    console.log('Humidity:', dailyHumid);
+    let dTemp = dailyTemp.toFixed(1);
+    console.log(dTemp);
+    // ** How do I add array of data to each respective element in HTML?**
+    forecastTemp.textContent = "Temp: " + dTemp + '\u00B0F ';
+    forecastWind.textContent = "Wind: " + dailyWind + " MPH";
+    forecastHumid.textContent = "Humidity: " + dailyHumid + " %";
   }
 };
+
+// Function that reloads city input into search and pulls new weather data from the savedCity list
