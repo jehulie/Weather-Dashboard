@@ -25,36 +25,52 @@ background-repeat: no-repeat;background-attachment: fixed; background-size: cove
     <div class='row'>
         <div class="col-sm-3" id="search-box">
             <h2 id="search-header">Search for a City:</h2>
-            <div class="form-group">
-                <input type="text" class="validate" id="userCity" aria-describedby="user city input"
-                    placeholder="Chicago">
-            </div>
-            <button type="button" id="custom-btn" onclick="getUserInput();">Submit</button>
-         <hr>
+            <form class="form" id="search-form">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="validate" id="userCity" aria-describedby="user city input"
+                            placeholder="Chicago">
+                            <div class="input-group-append">
+                                <button type="submit" id="custom-btn">Submit</button>
+                            </div>
+                    </div>
+                </div>     
+            </form>
+            <hr>
         </div>
+    
         <div class="col" id="current-box" style="background-image: url(./assets/images/clouds_white_medres.jpeg); 
         background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
-            <h2 id="city-header">City Input</h2>
+            <h2 id="city-header">Today's Forecast <span id='current-date'></span></h2>
             <ul>
-                <li id='current-temp'>Temp: 74</li>
-                <li id='current-wind'>Wind: 76.67 MPH</li>
-                <li id='current-humid'>Humidity: 46%</li>
-                <li>UV Index: <span id='current-uv'>0.47</span></li>
+                <li id='current-temp'>Temp: --- </li>
+                <li id='current-wind'>Wind: --- </li>
+                <li id='current-humid'>Humidity: --- </li>
+                <li>UV Index: <span id='current-uv'>---</span></li>
             </ul>
         </div>
     </div>
     <div class='row'>
         <div class="col-sm-3" id="results-box">
-            <div>
-                <ul class="list-group">
-                    <!-- <li class="search-item"></li> -->
-                </ul>
+            <div class="list-group" id="history">
             </div>
         </div>
-        <div class="col" id="forecast-box">
-            <div class='row'>
+        <!-- 5-Day Forecast Display - Column with all the cards -->
+        <div class="col" id="forecast-display">
+            <!-- Parent Row -->
+            <div class='row' id="forecast-row">
                 <h3>5-Day Forecast</h3>
+                <!-- First Card -->
                 <div class="col" id="forecast-card">
+                    <h4 id="date-input">Upcoming Days</h4>
+                    <ul>
+                        <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
+                        <li id='daily-temp'>Temp: --- </li>
+                        <li id='daily-wind'>Wind: --- </li>
+                        <li id='daily-humid'>Humidity: --- </li>
+                    </ul>
+                </div>
+                <!-- <div class="col" id="forecast-card">
                     <h4 id="date-input">Date Input</h4>
                     <ul>
                         <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
@@ -62,8 +78,8 @@ background-repeat: no-repeat;background-attachment: fixed; background-size: cove
                         <li id='daily-wind'>Wind: 76.67 MPH</li>
                         <li id='daily-humid'>Humidity: 46%</li>
                     </ul>
-                </div>
-                <div class="col" id="forecast-card">
+                </div> -->
+                <!-- <div class="col" id="forecast-card">
                     <h4 id="date-input">Date Input</h4>
                     <ul>
                         <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
@@ -71,8 +87,8 @@ background-repeat: no-repeat;background-attachment: fixed; background-size: cove
                         <li id='daily-wind'>Wind: 76.67 MPH</li>
                         <li id='daily-humid'>Humidity: 46%</li>
                     </ul>
-                </div>
-                <div class="col" id="forecast-card">
+                </div> -->
+                <!-- <div class="col" id="forecast-card">
                     <h4 id="date-input">Date Input</h4>
                     <ul>
                         <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
@@ -80,8 +96,8 @@ background-repeat: no-repeat;background-attachment: fixed; background-size: cove
                         <li id='daily-wind'>Wind: 76.67 MPH</li>
                         <li id='daily-humid'>Humidity: 46%</li>
                     </ul>
-                </div>
-                <div class="col" id="forecast-card">
+                </div> -->
+                <!-- <div class="col" id="forecast-card">
                     <h4 id="date-input">Date Input</h4>
                     <ul>
                         <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
@@ -89,16 +105,7 @@ background-repeat: no-repeat;background-attachment: fixed; background-size: cove
                         <li id='daily-wind'>Wind: 76.67 MPH</li>
                         <li id='daily-humid'>Humidity: 46%</li>
                     </ul>
-                </div>
-                <div class="col" id="forecast-card">
-                    <h4 id="date-input">Date Input</h4>
-                    <ul>
-                        <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
-                        <li id='daily-temp'>Temp: 74</li>
-                        <li id='daily-wind'>Wind: 76.67 MPH</li>
-                        <li id='daily-humid'>Humidity: 46%</li>
-                    </ul>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
