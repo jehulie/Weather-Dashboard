@@ -5,7 +5,7 @@ var todayUV = document.getElementById('current-uv');
 var todayCity = document.getElementById('city-header');
 var todayDate = document.getElementById('current-date');
 var forecastDisplay = document.getElementById('forecast-display');
-var forecastCard = document.getElementById('forecast-card');
+var forecastContainer = document.getElementById('forecast-container');
 var forecastDate = document.getElementById('date-input');
 var forecastIcon = document.getElementById('wicon');
 var forecastTemp = document.getElementById('daily-temp');
@@ -133,9 +133,10 @@ function displayWeather(data) {
 // Function to display 5-day forecast on web page
 function displayForecast(data) {
   // clear elements in forecastDisplay
-  forecastCard.innerHTML = "";
+  forecastContainer.innerHTML = "";
   //  loop function to get data to populate 5-day forecast
   for (let i = 1; i < 6; i++) {
+    // Get data for forecast cards
     // Convert daily dt to legible date for 5-day forecast
     const dailyDt = data.daily[i].dt;
     const date = new Date(dailyDt * 1000);
@@ -157,30 +158,34 @@ function displayForecast(data) {
     console.log('Humidity:', dailyHumid);
     let dTemp = dailyTemp.toFixed(1);
     console.log(dTemp);
-    // // Consolidate data into array object
-    // arrayDataObject[i] = {
-    //   'time': dailyTime[i],
-    //   'icon': iconUrl[i],
-    //   'temp': dTemp[i],
-    //   'wind': dailyWind[i],
-    //   'humid': dailyHumid[i]
-    // }
-    // console.log('Date[i]:', arrayDataObject[i].time[i])
-    // console.log('Temp[i]:', arrayDataObject[i].dTemp[i])
+   
+      // ** Code below isn't working **
+      // Create HTML elements for displaying data
+      function renderForecast () {
+        var cardEl = document.createElement('div');
+        var cardDate = document.createElement('h4');
+        var cardBody = document.createElement('ul');
+        var cardIcon = document.createElement('img');
+        var cardTemp = document.createElement('li');
+        var cardWind = document.createElement('li');
+        var cardHumid = document.createElement('li');
 
-    // Create HTML elements for displaying data
-    var newCard = forecastCard.clone();
-    arrayCards[i + 1] = newCard;
-    newCard.append(forecastCard);
-    // lastCard=newCard;
-    // newCard.insertAfter(lastCard);
-    // Put data into HTML elements
-    arrayCards[i].forecastDate.textContent = arrayDataObject[i].time;
-    arrayCards[i].forecastIcon.setAttribute('src', arrayDataObject[i].icon);
-    arrayCards[i].forecastTemp.textContent = "Temp: " + arrayDataObject[i].temp + '\u00B0F ';
-    arrayCards[i].forecastWind.textContent = "Wind: " + arrayDataObject[i].wind + " MPH";
-    arrayCards[i].forecastHumid.textContent = "Humidity: " + arrayDataObject[i].humid + " %";
-  }
+        cardEl.classList.add ('col');
+        cardIcon.setAttribute('src', iconUrl);
+        cardDate.innerHTML = dailyTime;
+        cardTemp.innerHTML = dTemp;
+        cardWind.innerHTML = dailyWind;
+        cardHumid.innerHTML = dailyHumid;
+        cardEl.appendChild(cardDate);
+        cardEl.appendChild(cardBody);
+        cardBody.appendChild(cardIcon);
+        cardBody.appendChild(cardTemp);
+        cardBody.appendChild(cardWind);
+        cardBody.appendChild(cardHumid);
+        forecastContainer.appendChild(cardEl);
+      };
+      return renderForecast()
+  };
 };
 
 // Handles user city input upon submit
