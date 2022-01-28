@@ -35,20 +35,24 @@ h1 {
 #results-box {
     margin-left: 20px;
     margin-right: 10px;
-    margin-top: -120px;
+    /* height: 200px;
+    width: auto; */
+    /* margin-top: -120px; */
 }
 
 #custom-btn {
     margin-top: 10px;
-    width: 100%;
+    width: 90px;
     background-color: var(--skyblue);
     font-weight: bolder;
     color: var(--pink);
 }
 
-button {
+.search-button {
     background-color: var(--skyblue);
     color: var(--pink);
+    width: 270px;
+    margin-left: -15px;
 }
 
 #current-box {
@@ -82,17 +86,27 @@ li {
 
 h3 {
     margin-bottom: 20px;
-    margin-left: -10px;
+    /* margin-left: -10px; */
     font-weight: bolder;
     color:var(--skyblue)
 }
 
 h4 {
     color: var(--tangerine);
+    margin-top: 10px;
+}
+
+#forecast-display {
+    /* background-color:paleturquoise; */
+    margin-right: 40px;
+    margin-left: 10px;
+    padding: 10px;
 }
 
 #forecast-card {
     background-color:paleturquoise;
     margin-right: 40px;
+    margin-left: 10px;
     padding: 10px;
 }
+

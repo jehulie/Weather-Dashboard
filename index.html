@@ -20,7 +20,6 @@ background-repeat: no-repeat;background-attachment: fixed; background-size: cove
     <div class="jumbotron" style="background-image: url(./assets/images/sunset1-crop.jpeg); 
     background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
         <h1 class="display-4">Weather Dashboard</h1>
-        <!-- <hr class="my-6"> -->
     </div>
     <div class='row'>
         <div class="col-sm-3" id="search-box">
@@ -37,31 +36,31 @@ background-repeat: no-repeat;background-attachment: fixed; background-size: cove
                 </div>
             </form>
             <hr>
-        </div>
-
-        <div class="col" id="current-box" style="background-image: url(./assets/images/clouds_white_medres.jpeg); 
-        background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
-            <h2 id="city-header">Today's Forecast <span id='current-date'></span></h2>
-            <ul>
-                <li id='current-temp'>Temp: --- </li>
-                <li id='current-wind'>Wind: --- </li>
-                <li id='current-humid'>Humidity: --- </li>
-                <li>UV Index: <span id='current-uv'>---</span></li>
-            </ul>
-        </div>
-    </div>
-    <div class='row'>
-        <div class="col-sm-3" id="results-box">
-            <div class="list-group" id="history">
+            <div class='row'>
+                <div class="col-sm-3" id="results-box">
+                    <div class="list-group" id="history">
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- 5-Day Forecast Display - Column with all the cards -->
-        <div class="col" id="forecast-display">
+        <div class="col">
+            <div id="current-box" style="background-image: url(./assets/images/clouds_white_medres.jpeg); 
+        background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
+                <h2 id="city-header">Today's Forecast <span id='current-date'></span></h2>
+                <ul>
+                    <li id='current-temp'>Temp: --- </li>
+                    <li id='current-wind'>Wind: --- </li>
+                    <li id='current-humid'>Humidity: --- </li>
+                    <li>UV Index: <span id='current-uv'>---</span></li>
+                </ul>
+            </div>
+
+            <!-- 5-Day Forecast Display - Column with all the cards -->
             <!-- Parent Row -->
-            <div class='row' id="forecast-row">
+            <div class='row justify-content-around' id="forecast-display">
                 <h3>5-Day Forecast</h3>
-                <!-- First Card -->
-                <!-- <div id="forecast-container"> -->
+                <!-- Placeholder Card -->
+                <div class='row' id="forecast-container">
                     <div class="col" id="forecast-card">
                         <h4 id="date-input">Upcoming Days</h4>
                         <ul>
@@ -71,47 +70,10 @@ background-repeat: no-repeat;background-attachment: fixed; background-size: cove
                             <li id='daily-humid'>Humidity: --- </li>
                         </ul>
                     </div>
-                <!-- </div> -->
+                </div>
             </div>
-            <!-- <div class="col" id="forecast-card">
-                    <h4 id="date-input">Date Input</h4>
-                    <ul>
-                        <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
-                        <li id='daily-temp'>Temp: 74</li>
-                        <li id='daily-wind'>Wind: 76.67 MPH</li>
-                        <li id='daily-humid'>Humidity: 46%</li>
-                    </ul>
-                </div> -->
-            <!-- <div class="col" id="forecast-card">
-                    <h4 id="date-input">Date Input</h4>
-                    <ul>
-                        <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
-                        <li id='daily-temp'>Temp: 74</li>
-                        <li id='daily-wind'>Wind: 76.67 MPH</li>
-                        <li id='daily-humid'>Humidity: 46%</li>
-                    </ul>
-                </div> -->
-            <!-- <div class="col" id="forecast-card">
-                    <h4 id="date-input">Date Input</h4>
-                    <ul>
-                        <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
-                        <li id='daily-temp'>Temp: 74</li>
-                        <li id='daily-wind'>Wind: 76.67 MPH</li>
-                        <li id='daily-humid'>Humidity: 46%</li>
-                    </ul>
-                </div> -->
-            <!-- <div class="col" id="forecast-card">
-                    <h4 id="date-input">Date Input</h4>
-                    <ul>
-                        <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
-                        <li id='daily-temp'>Temp: 74</li>
-                        <li id='daily-wind'>Wind: 76.67 MPH</li>
-                        <li id='daily-humid'>Humidity: 46%</li>
-                    </ul>
-                </div> -->
         </div>
     </div>
-
 
 
 

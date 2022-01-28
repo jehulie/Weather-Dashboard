@@ -130,9 +130,12 @@ function displayWeather(data) {
   return data;
 };
 
+// ** Why does code stop running here? **
+
 // Function to display 5-day forecast on web page
 function displayForecast(data) {
   // clear elements in forecastDisplay
+  console.log(data);
   forecastContainer.innerHTML = "";
   //  loop function to get data to populate 5-day forecast
   for (let i = 1; i < 6; i++) {
@@ -159,23 +162,23 @@ function displayForecast(data) {
     let dTemp = dailyTemp.toFixed(1);
     console.log(dTemp);
    
-      // ** Code below isn't working **
       // Create HTML elements for displaying data
       function renderForecast () {
         var cardEl = document.createElement('div');
         var cardDate = document.createElement('h4');
-        var cardBody = document.createElement('ul');
+        var cardBody = document.createElement('div');
         var cardIcon = document.createElement('img');
-        var cardTemp = document.createElement('li');
-        var cardWind = document.createElement('li');
-        var cardHumid = document.createElement('li');
+        var cardTemp = document.createElement('p');
+        var cardWind = document.createElement('p');
+        var cardHumid = document.createElement('p');
 
         cardEl.classList.add ('col');
+        cardEl.setAttribute('style','background-color:paleturquoise');
         cardIcon.setAttribute('src', iconUrl);
         cardDate.innerHTML = dailyTime;
-        cardTemp.innerHTML = dTemp;
-        cardWind.innerHTML = dailyWind;
-        cardHumid.innerHTML = dailyHumid;
+        cardTemp.innerHTML = 'Temp: ' + dTemp + '\u00B0F ';
+        cardWind.innerHTML = 'Wind: ' + dailyWind + ' MPH';
+        cardHumid.innerHTML = 'Humidity: ' + dailyHumid + ' %';
         cardEl.appendChild(cardDate);
         cardEl.appendChild(cardBody);
         cardBody.appendChild(cardIcon);
@@ -184,7 +187,7 @@ function displayForecast(data) {
         cardBody.appendChild(cardHumid);
         forecastContainer.appendChild(cardEl);
       };
-      return renderForecast()
+      renderForecast()
   };
 };
 
