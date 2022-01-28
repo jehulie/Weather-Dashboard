@@ -45,7 +45,7 @@ function loadCities() {
 
 // Using Open Weather Geocode API for converting city to longitude & latitude
 function geocode(city) {
-  var geocodeUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&appid=bec1cdd13d275e4702f754866932c17f'
+  var geocodeUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + city + '&appid=bec1cdd13d275e4702f754866932c17f'
   fetch(geocodeUrl)
     .then(function (response) {
       if (response.status === 200) {
